@@ -17,7 +17,7 @@ class LoginPage extends StatelessWidget {
               const Text(
                 'Welcome',
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 28,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -48,6 +48,8 @@ class LoginPage extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {},
                       child: const Text('Login'),
+                      style: TextButton.styleFrom(
+                          minimumSize: const Size(150, 40)),
                     ),
                   ],
                 ),
