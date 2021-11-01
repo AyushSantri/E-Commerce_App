@@ -23,6 +23,33 @@ class LoginPage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+              child: Column(
+                children: [
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: "Enter Username",
+                      labelText: "Username",
+                    ),
+                  ),
+                  TextFormField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      hintText: "Enter Password",
+                      labelText: "Password",
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: const Text('Login'),
+                  ),
+                ],
+              ),
+            )
           ],
         ));
   }
