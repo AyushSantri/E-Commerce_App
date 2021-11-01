@@ -10,13 +10,19 @@ class LoginPage extends StatelessWidget {
         child: Column(
           children: [
             Image.asset('images/login_image.png'),
-            Text(
+            const SizedBox(
+              height: 20,
+            ),
+            const Text(
               'Welcome',
               style: TextStyle(
-                fontSize: 22,
+                fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
-            )
+            ),
+            const SizedBox(
+              height: 20,
+            ),
           ],
         ));
   }
