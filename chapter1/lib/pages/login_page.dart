@@ -11,6 +11,18 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   String name = "";
   bool changeButton = false;
+
+  moveToHome(BuildContext context) async {
+    setState(() {
+      changeButton = true;
+    });
+    await Future.delayed(const Duration(seconds: 1));
+    await Navigator.pushNamed(context, MyRoutes.homeRoute);
+    setState(() {
+      changeButton = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -59,16 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: 20,
                     ),
                     InkWell(
-                      onTap: () async {
-                        setState(() {
-                          changeButton = true;
-                        });
-                        await Future.delayed(const Duration(seconds: 1));
-                        await Navigator.pushNamed(context, MyRoutes.homeRoute);
-                        setState(() {
-                          changeButton = false;
-                        });
-                      },
+                      onTap: () => moveToHome(context),
                       child: AnimatedContainer(
                         duration: const Duration(seconds: 1),
                         height: 50,
