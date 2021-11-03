@@ -1,3 +1,4 @@
+import 'package:chapter1/utils/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -55,6 +56,20 @@ class MyDrawer extends StatelessWidget {
                 textScaleFactor: 1.2,
                 style: TextStyle(color: Colors.white),
               ),
+            ),
+            ListTile(
+              leading: const Icon(
+                CupertinoIcons.fullscreen_exit,
+                color: Colors.white,
+              ),
+              title: const Text(
+                'Log Out',
+                textScaleFactor: 1.2,
+                style: TextStyle(color: Colors.white),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, MyRoutes.loginRoute);
+              },
             ),
           ],
         ),
