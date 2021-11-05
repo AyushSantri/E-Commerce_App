@@ -40,14 +40,18 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemCount: CatalogModel.Items.length,
-          itemBuilder: (context, index) {
-            return ItemWidget(
-              item: CatalogModel.Items[index],
-            );
-          },
-        ),
+        child: (CatalogModel.Items != null && CatalogModel.Items.isNotEmpty)
+            ? ListView.builder(
+                itemCount: CatalogModel.Items.length,
+                itemBuilder: (context, index) {
+                  return ItemWidget(
+                    item: CatalogModel.Items[index],
+                  );
+                },
+              )
+            : const Center(
+                child: CircularProgressIndicator(),
+              ),
       ),
       drawer: const MyDrawer(),
     );
