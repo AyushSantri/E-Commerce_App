@@ -25,6 +25,10 @@ class _HomePageState extends State<HomePage> {
         .loadString("files/catalog.json"); //this will convert JSON into string
     var decodedJSON = jsonDecode(
         catalogJSON); // this will convert string into Map i.e, key value pair
+    var productData = decodedJSON["products"];
+
+    CatalogModel.Items =
+        List.from(productData).map<Item>((item) => Item.fromMap(item)).toList();
   }
 
   @override
@@ -34,13 +38,16 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         title: const Text("Catalog App"),
       ),
-      body: ListView.builder(
-        itemCount: CatalogModel.Items.length,
-        itemBuilder: (context, index) {
-          return ItemWidget(
-            item: CatalogModel.Items[index],
-          );
-        },
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView.builder(
+          itemCount: CatalogModel.Items.length,
+          itemBuilder: (context, index) {
+            return ItemWidget(
+              item: CatalogModel.Items[index],
+            );
+          },
+        ),
       ),
       drawer: const MyDrawer(),
     );
