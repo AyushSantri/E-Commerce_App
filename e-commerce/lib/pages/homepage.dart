@@ -17,10 +17,10 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    LoadState();
+    loadState();
   }
 
-  LoadState() async {
+  loadState() async {
     var catalogJSON = await rootBundle
         .loadString("files/catalog.json"); //this will convert JSON into string
     var decodedJSON = jsonDecode(
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
           );
         },
       ),
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
     );
   }
 }
