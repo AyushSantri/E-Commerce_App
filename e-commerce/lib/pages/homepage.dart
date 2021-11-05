@@ -21,6 +21,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadState() async {
+    await Future.delayed(const Duration(seconds: 2));
+
     var catalogJSON = await rootBundle
         .loadString("files/catalog.json"); //this will convert JSON into string
     var decodedJSON = jsonDecode(
@@ -29,6 +31,8 @@ class _HomePageState extends State<HomePage> {
 
     CatalogModel.Items =
         List.from(productData).map<Item>((item) => Item.fromMap(item)).toList();
+
+    setState(() {});
   }
 
   @override
