@@ -45,13 +45,43 @@ class _HomePageState extends State<HomePage> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: (CatalogModel.Items != null && CatalogModel.Items.isNotEmpty)
-            ? ListView.builder(
-                itemCount: CatalogModel.Items.length,
+            ? GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 16,
+                    crossAxisSpacing: 16),
                 itemBuilder: (context, index) {
-                  return ItemWidget(
-                    item: CatalogModel.Items[index],
+                  final item = CatalogModel.Items[index];
+                  return Card(
+                    clipBehavior: Clip.antiAlias,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    child: GridTile(
+                      header: Container(
+                        child: Text(
+                          item.name,
+                          style: const TextStyle(color: Colors.white),
+                        ),
+                        padding: const EdgeInsets.all(12),
+                        decoration: const BoxDecoration(
+                          color: Colors.deepPurple,
+                        ),
+                      ),
+                      child: Image.network(item.image),
+                      footer: Container(
+                        child: Text(
+                          item.price.toString(),
+                          style: const TextStyle(color: Colors.white),
+                        ),
+                        padding: const EdgeInsets.all(12),
+                        decoration: const BoxDecoration(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
                   );
                 },
+                itemCount: CatalogModel.Items.length,
               )
             : const Center(
                 child: CircularProgressIndicator(),
