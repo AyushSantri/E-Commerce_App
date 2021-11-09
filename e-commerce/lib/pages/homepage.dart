@@ -5,6 +5,7 @@ import 'package:chapter1/widgets/drawer.dart';
 import 'package:chapter1/widgets/item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -37,27 +38,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("Catalog App"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: (CatalogModel.Items != null && CatalogModel.Items.isNotEmpty)
-            ? ListView.builder(
-                itemBuilder: (context, index) {
-                  return ItemWidget(
-                    item: CatalogModel.Items[index],
-                  );
-                },
-                itemCount: CatalogModel.Items.length,
-              )
-            : const Center(
-                child: CircularProgressIndicator(),
-              ),
-      ),
-      drawer: const MyDrawer(),
-    );
+    return Scaffold();
   }
 }
