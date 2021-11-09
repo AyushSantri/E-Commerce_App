@@ -50,9 +50,7 @@ class _HomePageState extends State<HomePage> {
               if (CatalogModel.Items != null && CatalogModel.Items.isNotEmpty)
                 CatalogList().expand()
               else
-                const Center(
-                  child: CircularProgressIndicator(),
-                )
+                CircularProgressIndicator().centered().expand(),
             ],
           ),
         ),
