@@ -38,6 +38,39 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          padding: Vx.m32,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              "Catalog App".text.xl5.bold.make(),
+              "trending products".text.xl2.make(),
+              if (CatalogModel.Items != null && CatalogModel.Items.isNotEmpty)
+                CatalogList()
+              else
+                const Center(
+                  child: CircularProgressIndicator(),
+                )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CatalogList extends StatelessWidget {
+  const CatalogList({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return ItemWidget(item: CatalogModel.Items[index]);
+      },
+      itemCount: CatalogModel.Items.length,
+    );
   }
 }
