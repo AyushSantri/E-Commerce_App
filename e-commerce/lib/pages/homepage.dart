@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
               "Catalog App".text.xl5.bold.make(),
               "trending products".text.xl2.make(),
               if (CatalogModel.Items != null && CatalogModel.Items.isNotEmpty)
-                CatalogList()
+                CatalogList().expand()
               else
                 const Center(
                   child: CircularProgressIndicator(),
@@ -67,6 +67,7 @@ class CatalogList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      shrinkWrap: true,
       itemBuilder: (context, index) {
         return ItemWidget(item: CatalogModel.Items[index]);
       },
