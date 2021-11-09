@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:chapter1/models/catalog.dart';
+import 'package:chapter1/pages/home_detail_page.dart';
 import 'package:chapter1/widgets/drawer.dart';
 import 'package:chapter1/widgets/item_widget.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +68,14 @@ class CatalogList extends StatelessWidget {
     return ListView.builder(
       shrinkWrap: true,
       itemBuilder: (context, index) {
-        return ItemWidget(item: CatalogModel.Items[index]);
+        return InkWell(
+            onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          HomeDetailPage(item: CatalogModel.Items[index])),
+                ),
+            child: ItemWidget(item: CatalogModel.Items[index]));
       },
       itemCount: CatalogModel.Items.length,
     );
