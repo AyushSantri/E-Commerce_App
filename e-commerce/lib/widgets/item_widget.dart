@@ -14,7 +14,9 @@ class ItemWidget extends StatelessWidget {
     return VxBox(
       child: Row(
         children: [
-          Image.network(item.image).box.make().py16(),
+          Hero(
+              tag: Key(item.id.toString()),
+              child: Image.network(item.image).box.make().py16()),
           Expanded(
               child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
