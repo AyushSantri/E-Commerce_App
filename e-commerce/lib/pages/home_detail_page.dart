@@ -11,13 +11,17 @@ class HomeDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      bottomNavigationBar: ButtonBar(
-        alignment: MainAxisAlignment.spaceBetween,
-        children: [
-          "\$${item.price}".text.xl.bold.make(),
-          ElevatedButton(onPressed: () {}, child: "Buy".text.make()).wh(100, 50)
-        ],
-      ).p32(),
+      bottomNavigationBar: Container(
+        color: Colors.white,
+        child: ButtonBar(
+          alignment: MainAxisAlignment.spaceBetween,
+          children: [
+            "\$${item.price}".text.xl4.bold.make(),
+            ElevatedButton(onPressed: () {}, child: "Buy".text.make())
+                .wh(100, 50)
+          ],
+        ).p32(),
+      ),
       body: SafeArea(
         child: Column(
           children: [
