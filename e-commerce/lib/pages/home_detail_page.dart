@@ -17,8 +17,8 @@ class HomeDetailPage extends StatelessWidget {
           alignment: MainAxisAlignment.spaceBetween,
           children: [
             "\$${item.price}".text.xl4.bold.make(),
-            ElevatedButton(onPressed: () {}, child: "Buy".text.make())
-                .wh(100, 50)
+            ElevatedButton(onPressed: () {}, child: "Add to cart".text.make())
+                .wh(110, 50)
           ],
         ).p32(),
       ),
