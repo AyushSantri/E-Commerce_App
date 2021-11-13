@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:chapter1/models/catalog.dart';
 import 'package:chapter1/pages/home_detail_page.dart';
+import 'package:chapter1/utils/routes.dart';
 import 'package:chapter1/widgets/drawer.dart';
 import 'package:chapter1/widgets/item_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -42,7 +43,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, MyRoutes.cartRoute);
+        },
         child: const Icon(CupertinoIcons.shopping_cart),
       ),
       body: SafeArea(
