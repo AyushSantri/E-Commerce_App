@@ -12,15 +12,23 @@ class HomeDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(40.0),
-          child: Column(
-            children: [
-              Hero(
-                  tag: Key(item.id.toString()),
-                  child: Image.network(item.image)),
-            ],
-          ),
+        child: Column(
+          children: [
+            Hero(
+              tag: Key(item.id.toString()),
+              child: Image.network(item.image),
+            ).h32(context),
+            Expanded(
+              child: VxArc(
+                height: 30,
+                arcType: VxArcType.CONVEY,
+                edge: VxEdge.TOP,
+                child: Container(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
