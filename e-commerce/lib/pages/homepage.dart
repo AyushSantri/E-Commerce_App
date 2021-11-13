@@ -4,6 +4,7 @@ import 'package:chapter1/models/catalog.dart';
 import 'package:chapter1/pages/home_detail_page.dart';
 import 'package:chapter1/widgets/drawer.dart';
 import 'package:chapter1/widgets/item_widget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -40,6 +41,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(CupertinoIcons.shopping_cart),
+      ),
       body: SafeArea(
         child: Container(
           padding: Vx.m32,
