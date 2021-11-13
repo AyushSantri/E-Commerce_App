@@ -10,10 +10,15 @@ class HomeDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Image.network(item.image),
-        ],
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(40.0),
+          child: Column(
+            children: [
+              Image.network(item.image),
+            ],
+          ),
+        ),
       ),
     );
   }
