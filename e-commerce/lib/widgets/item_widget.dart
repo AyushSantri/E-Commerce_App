@@ -29,7 +29,8 @@ class ItemWidget extends StatelessWidget {
                 alignment: MainAxisAlignment.spaceBetween,
                 children: [
                   "\$${item.price}".text.xl.bold.make(),
-                  ElevatedButton(onPressed: () {}, child: "Buy".text.make())
+                  ElevatedButton(
+                      onPressed: () {}, child: "Add to cart".text.make())
                 ],
               )
             ],
