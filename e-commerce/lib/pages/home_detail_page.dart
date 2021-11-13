@@ -42,9 +42,9 @@ class HomeDetailPage extends StatelessWidget {
                       item.name.text.bold.xl4.make(),
                       item.desc.text.xl.make(),
                       10.heightBox,
-                      Text(
-                          "massa massa ultricies mi quis hendrerit dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas integer eget aliquet nibh praesent tristique magna sit amet purus gravida quis blandit turpis cursus in hac habitasse platea",
-                          style: Theme.of(context).textTheme.caption)
+                      Text("massa massa ultricies mi quis hendrerit dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas integer eget aliquet nibh praesent tristique magna sit amet purus gravida quis blandit turpis cursus in hac habitasse platea",
+                              style: Theme.of(context).textTheme.caption)
+                          .p16()
                     ],
                   ).py64(),
                 ),
