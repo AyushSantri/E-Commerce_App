@@ -25,6 +25,14 @@ class HomeDetailPage extends StatelessWidget {
                 edge: VxEdge.TOP,
                 child: Container(
                   color: Colors.white,
+                  width: context.screenWidth,
+                  child: Column(
+                    children: [
+                      item.name.text.bold.xl4.make(),
+                      item.desc.text.xl.make(),
+                      10.heightBox,
+                    ],
+                  ).py64(),
                 ),
               ),
             ),
