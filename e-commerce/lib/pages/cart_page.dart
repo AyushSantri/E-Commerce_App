@@ -15,7 +15,7 @@ class CartPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Placeholder().p32().expand(),
+          _CartList().p32().expand(),
           const Divider(),
           const _CartTotal(),
         ],
@@ -43,5 +43,27 @@ class _CartTotal extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class _CartList extends StatefulWidget {
+  const _CartList({Key? key}) : super(key: key);
+
+  @override
+  _CartListState createState() => _CartListState();
+}
+
+class _CartListState extends State<_CartList> {
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemBuilder: (context, index) => ListTile(
+              leading: const Icon(Icons.done),
+              trailing: IconButton(
+                icon: const Icon(Icons.remove_circle_outline),
+                onPressed: () {},
+              ),
+              title: "items".text.make(),
+            ));
   }
 }
