@@ -42,6 +42,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.canvasColor,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pushNamed(context, MyRoutes.cartRoute);
@@ -54,8 +55,12 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              "Catalog App".text.xl5.bold.make(),
-              "trending products".text.xl2.make(),
+              "Catalog App".text.xl5.bold.color(context.theme.cardColor).make(),
+              "trending products"
+                  .text
+                  .xl2
+                  .color(context.theme.cardColor)
+                  .make(),
               if (CatalogModel.Items != null && CatalogModel.Items.isNotEmpty)
                 CatalogList().expand()
               else
