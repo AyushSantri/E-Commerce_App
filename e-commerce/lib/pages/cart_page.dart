@@ -12,6 +12,12 @@ class CartPage extends StatelessWidget {
         centerTitle: true,
         title: "Cart".text.make(),
       ),
+      body: Column(
+        children: [
+          Placeholder().p32().expand(),
+          Divider(),
+        ],
+      ),
     );
   }
 }
