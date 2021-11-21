@@ -17,4 +17,14 @@ class CartModel {
   //get total price
   num get totalPrice =>
       items!.fold(0, (previousValue, current) => previousValue + current.price);
+
+  //add items
+  void add(Item item) {
+    _itemsId.add(item.id);
+  }
+
+  //remove items
+  void remove(Item item) {
+    _itemsId.remove(item.id);
+  }
 }
