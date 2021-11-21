@@ -1,3 +1,4 @@
+import 'package:chapter1/models/cart.dart';
 import 'package:chapter1/models/catalog.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -29,7 +30,7 @@ class ItemWidget extends StatelessWidget {
                 alignment: MainAxisAlignment.spaceBetween,
                 children: [
                   "\$${item.price}".text.xl.bold.make(),
-                  AddToCart(),
+                  AddToCart(item: item),
                 ],
               )
             ],
@@ -41,7 +42,8 @@ class ItemWidget extends StatelessWidget {
 }
 
 class AddToCart extends StatefulWidget {
-  const AddToCart({Key? key}) : super(key: key);
+  final Item item;
+  const AddToCart({Key? key, required this.item}) : super(key: key);
 
   @override
   _AddToCartState createState() => _AddToCartState();
@@ -54,6 +56,10 @@ class _AddToCartState extends State<AddToCart> {
     return ElevatedButton(
         onPressed: () {
           isAdded = isAdded.toggle();
+          final _catalog = CatalogModel();
+          final _cart = CartModel();
+          _cart.catalog = _catalog;
+          _cart.add(widget.item);
           setState(() {});
         },
         child: "Add to cart".text.make());
