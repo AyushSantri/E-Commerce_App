@@ -1,5 +1,7 @@
 import 'package:chapter1/models/catalog.dart';
 
 class CartModel {
-  late CatalogModel _catalog;
+  late CatalogModel catalog;
+
+  final List<int> _itemsId = [];
 }
