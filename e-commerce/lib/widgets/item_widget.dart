@@ -29,8 +29,7 @@ class ItemWidget extends StatelessWidget {
                 alignment: MainAxisAlignment.spaceBetween,
                 children: [
                   "\$${item.price}".text.xl.bold.make(),
-                  ElevatedButton(
-                      onPressed: () {}, child: "Add to cart".text.make())
+                  AddToCart(),
                 ],
               )
             ],
@@ -38,5 +37,25 @@ class ItemWidget extends StatelessWidget {
         ],
       ),
     ).white.rounded.square(150).make().py16();
+  }
+}
+
+class AddToCart extends StatefulWidget {
+  const AddToCart({Key? key}) : super(key: key);
+
+  @override
+  _AddToCartState createState() => _AddToCartState();
+}
+
+class _AddToCartState extends State<AddToCart> {
+  bool isAdded = false;
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          isAdded = isAdded.toggle();
+          setState(() {});
+        },
+        child: "Add to cart".text.make());
   }
 }
