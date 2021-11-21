@@ -1,7 +1,20 @@
 import 'package:chapter1/models/catalog.dart';
 
 class CartModel {
-  late CatalogModel catalog;
+  late CatalogModel _catalog;
+
+  CatalogModel get catalog => _catalog;
+
+  set catalog(CatalogModel catalog) {
+    _catalog = catalog;
+  }
 
   final List<int> _itemsId = [];
+
+  //get items in cart
+  List<Item>? get items => _itemsId.map((id) => _catalog.getById(id)).toList();
+
+  //get total price
+  num get totalPrice =>
+      items!.fold(0, (previousValue, current) => previousValue + current.price);
 }
