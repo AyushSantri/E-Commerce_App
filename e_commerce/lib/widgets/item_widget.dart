@@ -13,30 +13,55 @@ class ItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return VxBox(
-      child: Row(
-        children: [
-          Hero(
-              tag: Key(item.id.toString()),
-              child: Image.network(item.image).box.make().py16()),
-          Expanded(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              item.name.text.bold.make(),
-              item.desc.text.make(),
-              10.heightBox,
-              ButtonBar(
-                alignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  "\$${item.price}".text.xl.bold.make(),
-                  AddToCart(item: item),
-                ],
-              )
-            ],
-          ))
-        ],
-      ),
+      child: context.isMobile
+          ? Row(
+              children: [
+                Hero(
+                    tag: Key(item.id.toString()),
+                    child: Image.network(item.image).box.make().py16()),
+                Expanded(
+                    child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    item.name.text.bold.make(),
+                    item.desc.text.make(),
+                    10.heightBox,
+                    ButtonBar(
+                      alignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        "\$${item.price}".text.xl.bold.make(),
+                        AddToCart(item: item),
+                      ],
+                    )
+                  ],
+                ))
+              ],
+            )
+          : Column(
+              children: [
+                Hero(
+                    tag: Key(item.id.toString()),
+                    child: Image.network(item.image).box.make().py16()),
+                Expanded(
+                    child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    item.name.text.bold.make(),
+                    item.desc.text.make(),
+                    10.heightBox,
+                    ButtonBar(
+                      alignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        "\$${item.price}".text.xl.bold.make(),
+                        AddToCart(item: item),
+                      ],
+                    )
+                  ],
+                ))
+              ],
+            ),
     ).white.rounded.square(150).make().py16();
   }
 }
