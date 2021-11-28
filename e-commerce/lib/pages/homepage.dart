@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:chapter1/models/catalog.dart';
 import 'package:chapter1/pages/home_detail_page.dart';
 import 'package:chapter1/utils/routes.dart';
-import 'package:chapter1/widgets/drawer.dart';
 import 'package:chapter1/widgets/item_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -61,7 +60,7 @@ class _HomePageState extends State<HomePage> {
                   .xl2
                   .color(context.theme.cardColor)
                   .make(),
-              if (CatalogModel.Items != null && CatalogModel.Items.isNotEmpty)
+              if (CatalogModel.Items.isNotEmpty)
                 CatalogList().expand()
               else
                 CircularProgressIndicator().centered().expand(),
