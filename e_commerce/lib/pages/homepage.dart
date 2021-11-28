@@ -106,7 +106,7 @@ class CatalogList extends StatelessWidget {
             },
             itemCount: CatalogModel.Items.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2),
+                crossAxisCount: 2, crossAxisSpacing: 20),
           );
     ;
   }

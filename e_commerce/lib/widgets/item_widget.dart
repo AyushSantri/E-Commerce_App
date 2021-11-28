@@ -17,8 +17,10 @@ class ItemWidget extends StatelessWidget {
           ? Row(
               children: [
                 Hero(
-                    tag: Key(item.id.toString()),
-                    child: Image.network(item.image).box.make().py16()),
+                  tag: Key(item.id.toString()),
+                  child: Image.network(item.image).box.make().py16().wPCT(
+                      context: context, widthPCT: context.isMobile ? 40 : 20),
+                ),
                 Expanded(
                     child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
