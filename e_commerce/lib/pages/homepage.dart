@@ -77,19 +77,37 @@ class CatalogList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      itemBuilder: (context, index) {
-        return InkWell(
-            onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          HomeDetailPage(item: CatalogModel.Items[index])),
-                ),
-            child: ItemWidget(item: CatalogModel.Items[index]));
-      },
-      itemCount: CatalogModel.Items.length,
-    );
+    return context.isMobile
+        ? ListView.builder(
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return InkWell(
+                  onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HomeDetailPage(
+                                item: CatalogModel.Items[index])),
+                      ),
+                  child: ItemWidget(item: CatalogModel.Items[index]));
+            },
+            itemCount: CatalogModel.Items.length,
+          )
+        : GridView.builder(
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return InkWell(
+                  onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HomeDetailPage(
+                                item: CatalogModel.Items[index])),
+                      ),
+                  child: ItemWidget(item: CatalogModel.Items[index]));
+            },
+            itemCount: CatalogModel.Items.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2),
+          );
+    ;
   }
 }
